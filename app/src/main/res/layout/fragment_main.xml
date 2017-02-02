@@ -39,13 +39,12 @@
             <Button
                 android:text="came by accident"
                 android:layout_width="300dp"
-                android:id="@+id/button"
+                android:id="@+id/accidentBtn"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/hero_button"
                 android:textColor="#FAC740"
                 android:layout_marginTop="15dp"
                 android:drawableLeft="@drawable/lightning"
-                android:drawableRight="@drawable/item_selected"
                 android:paddingLeft="5dp"
                 android:paddingRight="10dp"
                 android:layout_height="55dp"/>
@@ -53,13 +52,12 @@
             <Button
                 android:text="genetic mutation"
                 android:layout_width="300dp"
-                android:id="@+id/button2"
+                android:id="@+id/mutationBtn"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/hero_button"
                 android:textColor="#FAC740"
                 android:layout_marginTop="15dp"
                 android:drawableLeft="@drawable/atomic"
-                android:drawableRight="@drawable/item_selected"
                 android:paddingLeft="5dp"
                 android:paddingRight="10dp"
                 android:layout_height="55dp"/>
@@ -67,13 +65,12 @@
             <Button
                 android:text="born with them"
                 android:layout_width="300dp"
-                android:id="@+id/button3"
+                android:id="@+id/bornBtn"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/hero_button"
                 android:textColor="#FAC740"
                 android:layout_marginTop="15dp"
                 android:drawableLeft="@drawable/rocket"
-                android:drawableRight="@drawable/item_selected"
                 android:paddingLeft="5dp"
                 android:paddingRight="10dp"
                 android:layout_height="55dp"/>
@@ -81,7 +78,7 @@
             <Button
                 android:text="choose powers"
                 android:layout_width="300dp"
-                android:id="@+id/button9"
+                android:id="@+id/chooseBtn"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/hero_solid_button"
                 android:textColor="#10161D"

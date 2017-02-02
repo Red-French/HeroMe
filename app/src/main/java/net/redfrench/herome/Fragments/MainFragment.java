@@ -7,8 +7,12 @@ import android.support.v4.app.Fragment;  // support library for older devices to
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import net.redfrench.herome.R;
+
+import static net.redfrench.herome.R.drawable.item_selected_btn;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +22,7 @@ import net.redfrench.herome.R;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {  // implement View interface
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,6 +31,12 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button accidentBtn;
+    private Button mutationBtn;
+    private Button bornBtn;
+    private Button chooseBtn;
+    int leftDrawable = 0;
 
     private MainFragmentInteractionListener mListener;
 
@@ -52,6 +62,8 @@ public class MainFragment extends Fragment {
         return fragment;
     }
 
+
+    // ONCREATE
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +73,56 @@ public class MainFragment extends Fragment {
         }
     }
 
+
+    // ONCREATEVIEW
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);  // store the view in 'view'
+
+        // grab all buttons
+        accidentBtn = (Button)view.findViewById(R.id.accidentBtn);  // calling findViewById on the view which was stored above
+        mutationBtn = (Button)view.findViewById(R.id.mutationBtn);
+        bornBtn = (Button)view.findViewById(R.id.bornBtn);
+        chooseBtn = (Button)view.findViewById(R.id.chooseBtn);
+
+        accidentBtn.setOnClickListener(this);  // finds the onClick listener that's part of this 'MainFragment' class
+        mutationBtn.setOnClickListener(this);
+        bornBtn.setOnClickListener(this);
+
+        // disable and dim 'Choose' button
+        chooseBtn.setEnabled(false);
+        chooseBtn.getBackground().setAlpha(128);  // (255 would be 100% transparent)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return view;
+    }
+
+    // generic onclick function
+    @Override
+    public void onClick(View view) {  // a button is a view, so the clicked button gets passed in as a view
+        chooseBtn.setEnabled(true);
+        chooseBtn.getBackground().setAlpha(255);  // fully opaque
+
+        Button btn = (Button)view;  // cast the passed-in view into a button so methods can be performed on it
+
+        if (btn == accidentBtn) {
+            leftDrawable = R.drawable.lightning;
+            mutationBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.atomic,0,0,0);
+            bornBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.rocket,0,0,0);
+        } else if (btn == mutationBtn) {
+            leftDrawable = R.drawable.atomic;
+            accidentBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning,0,0,0);
+            bornBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.rocket,0,0,0);
+        } else if (btn == bornBtn) {
+            leftDrawable = R.drawable.rocket;
+            accidentBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning,0,0,0);
+            mutationBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.atomic,0,0,0);
+        }
+
+        // set 'drawableRight' property on button that's clicked
+        btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable,0, item_selected_btn,0);  // (left, top, right, bottom)
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -75,6 +132,8 @@ public class MainFragment extends Fragment {
         }
     }
 
+
+    // ONATTACH
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -86,6 +145,8 @@ public class MainFragment extends Fragment {
         }
     }
 
+
+    // ONDETACH
     @Override
     public void onDetach() {
         super.onDetach();
