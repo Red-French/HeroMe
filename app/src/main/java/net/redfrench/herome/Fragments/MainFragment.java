@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import net.redfrench.herome.Activities.MainActivity;
 import net.redfrench.herome.R;
 
 import static net.redfrench.herome.R.drawable.item_selected_btn;
@@ -89,6 +90,14 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
         accidentBtn.setOnClickListener(this);  // finds the onClick listener that's part of this 'MainFragment' class
         mutationBtn.setOnClickListener(this);
         bornBtn.setOnClickListener(this);
+
+        chooseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                MainActivity mainActivity = (MainActivity)getActivity();  // getActivity() in a fragment gets the activity hosting the fragment
+                mainActivity.loadChoosePowerScreen();  // load fragment
+            }
+        });
 
         // disable and dim 'Choose' button
         chooseBtn.setEnabled(false);
