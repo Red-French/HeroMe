@@ -6,16 +6,19 @@ import android.support.v4.app.FragmentManager;  // using the support library, so
 import android.support.v7.app.AppCompatActivity;  // support library for older devices to use fragments
 import android.os.Bundle;
 
+import net.redfrench.herome.Fragments.ChoosePowerFragment;
 import net.redfrench.herome.Fragments.MainFragment;
 import net.redfrench.herome.R;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
+// implement all fragments
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, ChoosePowerFragment.ChoosePowerInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // ~ LOAD A FRAGMENT (load the first fragment this way, because you need the container) ~
         // get the FragmentManger
         FragmentManager manager = getSupportFragmentManager();  // Like the Activity Manager at the OS level manages activities,
                                                                 // the FragmentManager manages fragments, but inside of the app
@@ -25,13 +28,25 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         if (fragment == null) {  // if the fragment has previously loaded, it wilol be in memory. Otherwise, fragment will be null.
             fragment = new MainFragment();  // MainFragment inherits from Fragment (see MainFragment.java)
             manager.beginTransaction()  // anytime you work with the FragmentManager, you begin a transaction
-                    .add(R.id.fragment_container, fragment).commit();  // and you always end it by committing
-                    // add puts the fragment on the screen
+                    .add(R.id.fragment_container, fragment)  // add puts the fragment on the screen
+                    .commit();  // you always end it by committing
         }
     }
 
-    @Override
-    public void onMainFragmentInteraction(Uri uri) {
-
+    public void loadChoosePowerScreen() {
+        // ~ LOAD A FRAGMENT (can load subsequent fragments like this since container exists upon loading of first fragment) ~
+        ChoosePowerFragment choosePowerFragment = new ChoosePowerFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, choosePowerFragment)  // put choosePowerFragment on the screen
+                .addToBackStack(null)  // transaction will be remembered after committed, and operation will be reversed when later popped off stack
+                                       // cmd-click 'addToBackStack' and you'll see it takes a parameter, but you don't have to give it a name if you don't want to reference it
+                .commit();
     }
+
+    // implement fragments
+    @Override
+    public void onMainFragmentInteraction(Uri uri) {}
+    @Override
+    public void onChoosePowerFragmentInteraction(Uri uri) {}
 }
