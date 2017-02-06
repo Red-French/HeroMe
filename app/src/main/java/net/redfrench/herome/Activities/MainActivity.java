@@ -6,12 +6,14 @@ import android.support.v4.app.FragmentManager;  // using the support library, so
 import android.support.v7.app.AppCompatActivity;  // support library for older devices to use fragments
 import android.os.Bundle;
 
+import net.redfrench.herome.Fragments.BackstoryFragment;
 import net.redfrench.herome.Fragments.ChoosePowerFragment;
 import net.redfrench.herome.Fragments.MainFragment;
 import net.redfrench.herome.R;
 
+
 // implement all fragments
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, ChoosePowerFragment.ChoosePowerInteractionListener {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, ChoosePowerFragment.ChoosePowerInteractionListener, BackstoryFragment.BackstoryFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,17 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, choosePowerFragment)  // put choosePowerFragment on the screen
-                .addToBackStack(null)  // transaction will be remembered after committed, and operation will be reversed when later popped off stack
+                .addToBackStack(null)  // will remember transaction after commit, and operation will be reversed when later popped off stack
                                        // cmd-click 'addToBackStack' and you'll see it takes a parameter, but you don't have to give it a name if you don't want to reference it
+                .commit();
+    }
+
+    public void loadBackstoryScreen() {
+        BackstoryFragment backstoryFragment = new BackstoryFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, backstoryFragment)
+                .addToBackStack(null)
                 .commit();
     }
 
@@ -49,4 +60,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
     public void onMainFragmentInteraction(Uri uri) {}
     @Override
     public void onChoosePowerFragmentInteraction(Uri uri) {}
+    @Override
+    public void onBackstoryFragmentInteraction(Uri uri) {}
 }
