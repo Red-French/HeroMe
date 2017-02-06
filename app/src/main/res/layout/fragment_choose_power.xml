@@ -2,12 +2,99 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="net.redfrench.herome.Fragments.ChoosePowerFragment">
+             tools:context="net.redfrench.herome.Fragments.ChoosePowerFragment"
+             android:background="@drawable/hero_bg_gradient">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:orientation="vertical"
+        >
 
+        <Button
+            android:text="Turtle Power"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/turtleBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/turtlepower_icon"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Lightning"
+            android:layout_height="55dp"
+            android:id="@+id/lightningBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:drawableLeft="@drawable/lightning_icon"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Flight"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/flightBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/super_man_crest"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Web Slinging"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/webBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/spider_web"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Laser Vision"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/laserBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/laservision_icon"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Super Strength"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/strengthBtn"
+            android:textColor="#FAC740"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/superstrength_icon"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:text="Show Backstory"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:id="@+id/backstoryBtn"
+            android:textColor="#10161D"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/hero_button"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#FAC740"
+            android:textSize="22dp"/>
+
+    </LinearLayout>
 </FrameLayout>
