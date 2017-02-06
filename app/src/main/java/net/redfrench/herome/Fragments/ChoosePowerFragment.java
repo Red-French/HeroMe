@@ -12,6 +12,9 @@ import android.widget.Button;
 import net.redfrench.herome.Activities.MainActivity;
 import net.redfrench.herome.R;
 
+import static net.redfrench.herome.R.drawable.item_selected_btn;
+import static net.redfrench.herome.R.drawable.lightning;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -37,6 +40,7 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
     private Button laserBtn;
     private Button strengthBtn;
     private Button backstoryBtn;
+    int leftDrawable = 0;
 
     private ChoosePowerInteractionListener mListener;
 
@@ -117,6 +121,56 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         backstoryBtn.setEnabled(true);
         backstoryBtn.getBackground().setAlpha(255);
+
+        Button btn = (Button)view;  // cast the passed-in view into a button so methods can be performed on it
+
+        if (btn == turtleBtn) {
+            leftDrawable = R.drawable.turtlepower_icon;
+            lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+            flightBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superman_crest,0,0,0);
+            webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
+            laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
+            strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+        } else if (btn == lightningBtn) {
+            turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
+            leftDrawable = R.drawable.lightning_icon;
+            flightBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superman_crest,0,0,0);
+            webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
+            laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
+            strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+        } else if (btn == flightBtn) {
+            turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
+            lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+            leftDrawable = R.drawable.superman_crest;
+            webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
+            laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
+            strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+        } else if (btn == webBtn) {
+            turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
+            lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+            flightBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superman_crest,0,0,0);
+            leftDrawable = R.drawable.spider_web;
+            laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
+            strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+        } else if (btn == laserBtn) {
+            turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
+            lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+            flightBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superman_crest,0,0,0);
+            webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
+            leftDrawable = R.drawable.laservision_icon;
+            strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+
+        } else if (btn == strengthBtn) {
+            turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
+            lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+            flightBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superman_crest,0,0,0);
+            webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
+            laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
+            leftDrawable = R.drawable.superstrength_icon;
+        }
+
+        // set 'drawableRight' property on button that's clicked
+        btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable,0, item_selected_btn,0);  // (left, top, right, bottom)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
