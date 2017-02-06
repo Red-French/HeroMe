@@ -24,6 +24,8 @@ import static net.redfrench.herome.R.drawable.item_selected_btn;
  * create an instance of this fragment.
  */
 public class MainFragment extends Fragment implements View.OnClickListener {  // implement View interface
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,6 +42,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
     int leftDrawable = 0;
 
     private MainFragmentInteractionListener mListener;
+
+
+//    ************************************************************************
+//    ************************************************************************
+//    ************************************************************************
+
 
     public MainFragment() {
         // Required empty public constructor
@@ -83,7 +91,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
 
         // grab all buttons
         accidentBtn = (Button)view.findViewById(R.id.accidentBtn);  // calling findViewById on the view which was stored above
-        mutationBtn = (Button)view.findViewById(R.id.mutationBtn);
+        mutationBtn = (Button)view.findViewById(R.id.mutationBtn);  // cast what's found into a button so methods can be used on it
         bornBtn = (Button)view.findViewById(R.id.bornBtn);
         chooseBtn = (Button)view.findViewById(R.id.chooseBtn);
 
