@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import net.redfrench.herome.Activities.MainActivity;
 import net.redfrench.herome.R;
 
 /**
@@ -18,7 +20,7 @@ import net.redfrench.herome.R;
  * Use the {@link ChoosePowerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChoosePowerFragment extends Fragment {
+public class ChoosePowerFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +30,21 @@ public class ChoosePowerFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private Button turtleBtn;
+    private Button lightningBtn;
+    private Button flightBtn;
+    private Button webBtn;
+    private Button laserBtn;
+    private Button strengthBtn;
+    private Button backstoryBtn;
+
     private ChoosePowerInteractionListener mListener;
+
+
+//    ************************************************************************
+//    ************************************************************************
+//    ************************************************************************
+
 
     public ChoosePowerFragment() {
         // Required empty public constructor
@@ -64,8 +80,43 @@ public class ChoosePowerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_choose_power, container, false);
+
+        turtleBtn = (Button)view.findViewById(R.id.turtleBtn);
+        lightningBtn = (Button)view.findViewById(R.id.lightningBtn);
+        flightBtn = (Button)view.findViewById(R.id.flightBtn);
+        webBtn = (Button)view.findViewById(R.id.webBtn);
+        laserBtn = (Button)view.findViewById(R.id.laserBtn);
+        strengthBtn = (Button)view.findViewById(R.id.strengthBtn);
+        backstoryBtn = (Button)view.findViewById(R.id.backstoryBtn);
+
+        turtleBtn.setOnClickListener(this);
+        lightningBtn.setOnClickListener(this);
+        flightBtn.setOnClickListener(this);
+        webBtn.setOnClickListener(this);
+        laserBtn.setOnClickListener(this);
+        strengthBtn.setOnClickListener(this);
+
+        backstoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity = (MainActivity)getActivity();
+                mainActivity.loadBackstoryScreen();
+            }
+        });
+
+        // disable and dim 'Choose' button
+        backstoryBtn.setEnabled(false);
+        backstoryBtn.getBackground().setAlpha(128);  // (255 would be 100% transparent)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_choose_power, container, false);
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        backstoryBtn.setEnabled(true);
+        backstoryBtn.getBackground().setAlpha(255);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +156,7 @@ public class ChoosePowerFragment extends Fragment {
     public interface ChoosePowerInteractionListener {
         // TODO: Update argument type and name
         void onChoosePowerFragmentInteraction(Uri uri);
+
+        void onBackstoryFragmentInteraction(Uri uri);
     }
 }
