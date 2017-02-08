@@ -12,21 +12,32 @@
         android:orientation="vertical"
         >
 
+        <TextView
+            android:text="PICK A POWER"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/textView"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:textColor="#FAC740"
+            android:textSize="24dp"
+            android:textStyle="bold"/>
+
         <Button
             android:text="Turtle Power"
             android:layout_width="300dp"
-            android:layout_height="55dp"
             android:id="@+id/turtleBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
             android:background="@drawable/hero_button"
             android:layout_gravity="center_horizontal"
             android:drawableLeft="@drawable/turtlepower_icon"
-            android:paddingLeft="5dp"/>
+            android:paddingLeft="5dp"
+            android:layout_height="40dp"/>
 
         <Button
             android:text="Lightning"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:id="@+id/lightningBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
@@ -39,7 +50,7 @@
         <Button
             android:text="Flight"
             android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:id="@+id/flightBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
@@ -51,7 +62,7 @@
         <Button
             android:text="Web Slinging"
             android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:id="@+id/webBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
@@ -63,7 +74,7 @@
         <Button
             android:text="Laser Vision"
             android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:id="@+id/laserBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
@@ -75,7 +86,7 @@
         <Button
             android:text="Super Strength"
             android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:id="@+id/strengthBtn"
             android:textColor="#FAC740"
             android:layout_marginTop="15dp"
