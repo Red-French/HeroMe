@@ -103,6 +103,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
             @Override
             public void onClick(View view){
                 MainActivity mainActivity = (MainActivity)getActivity();  // getActivity() in a fragment gets the activity hosting the fragment
+                                                                          // A fragment doesn't have its own instance of a Context object.
+                                                                          // However, once the fragment is added to the parent activity, it can
+                                                                          // call getActivity() to access the parent activity and use the context
+                                                                          // of the parent activity
                 mainActivity.loadChoosePowerScreen();  // load fragment
             }
         });
