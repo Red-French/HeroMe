@@ -94,7 +94,7 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
         strengthBtn = (Button)view.findViewById(R.id.strengthBtn);
         backstoryBtn = (Button)view.findViewById(R.id.backstoryBtn);
 
-        turtleBtn.setOnClickListener(this);
+        turtleBtn.setOnClickListener(this);  // finds the onClick listener that's part of this class (implemented in the class declaration above)
         lightningBtn.setOnClickListener(this);
         flightBtn.setOnClickListener(this);
         webBtn.setOnClickListener(this);
