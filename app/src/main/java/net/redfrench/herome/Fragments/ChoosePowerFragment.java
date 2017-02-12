@@ -15,6 +15,7 @@ import net.redfrench.herome.R;
 import static net.redfrench.herome.R.drawable.item_selected_btn;
 import static net.redfrench.herome.R.drawable.lightning;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -41,6 +42,7 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
     private Button strengthBtn;
     private Button backstoryBtn;
     int leftDrawable = 0;
+
 
     private ChoosePowerInteractionListener mListener;
 
@@ -119,6 +121,8 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+        MainActivity mainActivity = (MainActivity)getActivity();
+
         backstoryBtn.setEnabled(true);
         backstoryBtn.getBackground().setAlpha(255);
 
@@ -131,6 +135,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
             laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
             strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+            mainActivity.BACKSTORYHDR = "TURTLE POWER";
+            mainActivity.BACKSTORY = "The secret of turtle power lies in slowness; it's actually patience.  Don't be fooled like the silly rabbit.  This guy is a hard shell to crack.";
+            mainActivity.USERSPOWER = "Turtle Power";
+            mainActivity.WEAKNESS = " A soft underbelly.  Goota keep the sunny side up.";
         } else if (btn == lightningBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             leftDrawable = R.drawable.lightning_icon;
@@ -138,6 +146,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
             laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
             strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+            mainActivity.BACKSTORYHDR = "LIGHTNING ~~";
+            mainActivity.BACKSTORY = "This is a story of lightning.  I was struck with this power one sunny day.";
+            mainActivity.USERSPOWER = "Lightning";
+            mainActivity.WEAKNESS = "Weakness? Come on, it's LIGHTNING.";
         } else if (btn == flightBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
@@ -145,6 +157,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
             laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
             strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+            mainActivity.BACKSTORYHDR = "FLIGHT";
+            mainActivity.BACKSTORY = "Maybe it came from the wRight Bros., but I just as soon keep my boots in the dirt.";
+            mainActivity.USERSPOWER = "Flight";
+            mainActivity.WEAKNESS = "Crashing.  Crashing.  CRASHING. (no thanks)";
         } else if (btn == webBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
@@ -152,6 +168,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             leftDrawable = R.drawable.spider_web;
             laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
             strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
+            mainActivity.BACKSTORYHDR = "WEB SLINGING";
+            mainActivity.BACKSTORY = "Well... what can I say?  Spinnin' tall tales is my special power.  'nuff said.";
+            mainActivity.USERSPOWER = "Web Slinging";
+            mainActivity.WEAKNESS = "Getting caught.  Quiet!";
         } else if (btn == laserBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
@@ -159,7 +179,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
             leftDrawable = R.drawable.laservision_icon;
             strengthBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength_icon,0,0,0);
-
+            mainActivity.BACKSTORYHDR = "LASER VISION";
+            mainActivity.BACKSTORY = "Walking out of a dimly-lit cafe, I bumped into the 6-million dollar man.  Since then, well... you know.";
+            mainActivity.USERSPOWER = "Laser Vision";
+            mainActivity.WEAKNESS = "Sharp sticks to the orbital area of the skull.";
         } else if (btn == strengthBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             lightningBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
@@ -167,6 +190,10 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             webBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spider_web,0,0,0);
             laserBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision_icon,0,0,0);
             leftDrawable = R.drawable.superstrength_icon;
+            mainActivity.BACKSTORYHDR = "SUPER STRENGTH";
+            mainActivity.BACKSTORY = "Watching The Hulk weekly was great education on becoming strong.  Just rip the shirt off.";
+            mainActivity.USERSPOWER = "Super Strength";
+            mainActivity.WEAKNESS = "Turning green.  That part sucks, strong or not.";
         }
 
         // set 'drawableRight' property on button that's clicked
@@ -179,6 +206,7 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             mListener.onChoosePowerFragmentInteraction(uri);
         }
     }
+
 
     @Override
     public void onAttach(Context context) {
