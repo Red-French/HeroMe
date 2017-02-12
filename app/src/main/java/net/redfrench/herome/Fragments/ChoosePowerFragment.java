@@ -138,7 +138,7 @@ public class ChoosePowerFragment extends Fragment implements View.OnClickListene
             mainActivity.BACKSTORYHDR = "TURTLE POWER";
             mainActivity.BACKSTORY = "The secret of turtle power lies in slowness; it's actually patience.  Don't be fooled like the silly rabbit.  This guy is a hard shell to crack.";
             mainActivity.USERSPOWER = "Turtle Power";
-            mainActivity.WEAKNESS = " A soft underbelly.  Goota keep the sunny side up.";
+            mainActivity.WEAKNESS = " A soft underbelly.  Gotta keep the sunny side up.";
         } else if (btn == lightningBtn) {
             turtleBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtlepower_icon,0,0,0);
             leftDrawable = R.drawable.lightning_icon;
