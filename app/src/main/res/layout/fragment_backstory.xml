@@ -34,7 +34,6 @@
             android:paddingTop="20dp"
             android:textColor="@android:color/darker_gray"
             android:textSize="18dp"
-            android:drawableLeft="@drawable/turtle_power3x"
             android:paddingRight="20dp"
             android:layout_below="@+id/backStoryHdr"
             android:layout_alignParentLeft="true"
