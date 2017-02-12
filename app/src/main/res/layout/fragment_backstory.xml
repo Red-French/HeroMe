@@ -1,13 +1,127 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="net.redfrench.herome.Fragments.BackstoryFragment">
+             tools:context="net.redfrench.herome.Fragments.BackstoryFragment"
+             android:background="@drawable/hero_bg_gradient">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/backStoryHdr"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:textColor="#FAC740"
+            android:textSize="24dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backstoryText"
+            android:layout_weight="0.17"
+            android:textAlignment="center"
+            android:paddingTop="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18dp"
+            android:drawableLeft="@drawable/turtle_power3x"
+            android:paddingRight="20dp"
+            android:layout_below="@+id/backStoryHdr"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/usersPower"
+            android:textAlignment="center"
+            android:textSize="22dp"
+            android:layout_above="@+id/labelObtained"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Obtained:"
+            android:ems="10"
+            android:id="@+id/labelObtained"
+            android:textSize="20dp"
+            android:paddingLeft="15dp"
+            android:layout_width="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="189dp"
+            android:textColor="@android:color/holo_blue_light"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/howObtained"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/labelObtained"
+            android:layout_alignBottom="@+id/labelObtained"
+            android:layout_toRightOf="@+id/labelObtained"
+            android:layout_toEndOf="@+id/labelObtained"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/howObtained"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/labelObtained"
+            android:layout_alignBottom="@+id/labelObtained"
+            android:layout_toEndOf="@+id/labelObtained"/>
+
+        <TextView
+            android:text="SPECIAL POWER"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/smlHdr"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:textSize="24dp"
+            android:layout_above="@+id/usersPower"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Weakness:"
+            android:ems="10"
+            android:id="@+id/labelWeakness"
+            android:textSize="20dp"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_below="@+id/howObtained"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="39dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/weakText"
+            android:textSize="20dp"
+            android:layout_below="@+id/labelWeakness"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
 
 </FrameLayout>
