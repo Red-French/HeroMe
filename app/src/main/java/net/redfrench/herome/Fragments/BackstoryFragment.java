@@ -88,6 +88,7 @@ public class BackstoryFragment extends Fragment {
         String gotHow = mainActivity.HOWOBTAINED;
         String weakness = mainActivity.WEAKNESS;
 
+
         TextView hdr = (TextView) view.findViewById(R.id.backStoryHdr);
         hdr.setText(backStoryHdr);
 
@@ -102,6 +103,27 @@ public class BackstoryFragment extends Fragment {
 
         TextView weakStuff = (TextView) view.findViewById(R.id.weakText);
         weakStuff.setText(weakness);
+
+        switch( backStoryHdr) {
+            case "TURTLE POWER":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.turtle_power3x,0,0,0);
+                break;
+            case "LIGHTNING ~~":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning_icon,0,0,0);
+                break;
+            case "FLIGHT":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.big_superman_logo,0,0,0);
+                break;
+            case "WEB SLINGING":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.spiderweb3x,0,0,0);
+                break;
+            case "LASER VISION":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.laservision3x,0,0,0);
+                break;
+            case "SUPER STRENGTH":
+                story.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.superstrength3x,0,0,0);
+                break;
+        };
 
         // Inflate the layout for this fragment
         return view;
