@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;  // so the app can use fragments
 import android.support.v4.app.FragmentManager;  // using the support library, so using the FragmentManager that's in AppCompatActivity
 import android.support.v7.app.AppCompatActivity;  // support library for older devices to use fragments
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 
 import net.redfrench.herome.Fragments.BackstoryFragment;
 import net.redfrench.herome.Fragments.ChoosePowerFragment;
@@ -16,6 +14,12 @@ import net.redfrench.herome.R;
 
 // implement all fragments
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, ChoosePowerFragment.ChoosePowerInteractionListener, BackstoryFragment.BackstoryFragmentInteractionListener {
+
+    public String BACKSTORYHDR;
+    public String BACKSTORY;
+    public String USERSPOWER;
+    public String HOWOBTAINED;
+    public String WEAKNESS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
                 .commit();
     }
 
-    private static final String TAG = "MainActivity";
-
     public void loadBackstoryScreen() {
-        Log.e(TAG, "inside loadBackstoryScreen()");
         BackstoryFragment backstoryFragment = new BackstoryFragment();
         getSupportFragmentManager()
                 .beginTransaction()
