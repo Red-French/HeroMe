@@ -7,8 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import net.redfrench.herome.Activities.MainActivity;
 
+import android.util.Log;
 import net.redfrench.herome.R;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +53,8 @@ public class BackstoryFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment BackstoryFragment.
      */
+
+
     // TODO: Rename and change types and number of parameters
     public static BackstoryFragment newInstance(String param1, String param2) {
         BackstoryFragment fragment = new BackstoryFragment();
@@ -58,6 +65,7 @@ public class BackstoryFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,12 +75,38 @@ public class BackstoryFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_backstory, container, false);
+
+        MainActivity mainActivity = (MainActivity)getActivity();
+        String backStoryHdr = mainActivity.BACKSTORYHDR;
+        String backStory = mainActivity.BACKSTORY;
+        String usersPower = mainActivity.USERSPOWER;
+        String gotHow = mainActivity.HOWOBTAINED;
+        String weakness = mainActivity.WEAKNESS;
+
+        TextView hdr = (TextView) view.findViewById(R.id.backStoryHdr);
+        hdr.setText(backStoryHdr);
+
+        TextView story = (TextView) view.findViewById(R.id.backstoryText);
+        story.setText(backStory);
+
+        TextView power = (TextView) view.findViewById(R.id.usersPower);
+        power.setText(usersPower);
+
+        TextView howGot = (TextView) view.findViewById(R.id.howObtained);
+        howGot.setText(gotHow);
+
+        TextView weakStuff = (TextView) view.findViewById(R.id.weakText);
+        weakStuff.setText(weakness);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_backstory, container, false);
+        return view;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -80,6 +114,7 @@ public class BackstoryFragment extends Fragment {
             mListener.onBackstoryFragmentInteraction(uri);
         }
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -92,11 +127,13 @@ public class BackstoryFragment extends Fragment {
         }
     }
 
+
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
