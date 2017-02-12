@@ -25,13 +25,11 @@ import static net.redfrench.herome.R.drawable.item_selected_btn;
  */
 public class MainFragment extends Fragment implements View.OnClickListener {  // implement View interface
 
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -122,6 +120,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
     // generic onclick function
     @Override
     public void onClick(View view) {  // a button is a view, so the clicked button gets passed in as a view
+        MainActivity mainActivity = (MainActivity)getActivity();
+
         chooseBtn.setEnabled(true);
         chooseBtn.getBackground().setAlpha(255);  // fully opaque
 
@@ -131,14 +131,17 @@ public class MainFragment extends Fragment implements View.OnClickListener {  //
             leftDrawable = R.drawable.lightning;
             mutationBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.atomic,0,0,0);
             bornBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.rocket,0,0,0);
+            mainActivity.HOWOBTAINED = "  Pure Accident";
         } else if (btn == mutationBtn) {
             leftDrawable = R.drawable.atomic;
             accidentBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning,0,0,0);
             bornBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.rocket,0,0,0);
+            mainActivity.HOWOBTAINED = "  Mean Mutation";
         } else if (btn == bornBtn) {
             leftDrawable = R.drawable.rocket;
             accidentBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.lightning,0,0,0);
             mutationBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.atomic,0,0,0);
+            mainActivity.HOWOBTAINED = "  Born Bad to the Bone... bbbaaad";
         }
 
         // set 'drawableRight' property on button that's clicked
