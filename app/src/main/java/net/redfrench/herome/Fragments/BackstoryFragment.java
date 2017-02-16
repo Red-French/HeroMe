@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import net.redfrench.herome.Activities.MainActivity;
 
@@ -23,7 +24,7 @@ import org.w3c.dom.Text;
  * Use the {@link BackstoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BackstoryFragment extends Fragment {
+public class BackstoryFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,6 +33,8 @@ public class BackstoryFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button startOverBtn;
 
     private BackstoryFragmentInteractionListener mListener;
 
@@ -87,6 +90,9 @@ public class BackstoryFragment extends Fragment {
         String usersPower = mainActivity.USERSPOWER;
         String gotHow = mainActivity.HOWOBTAINED;
         String weakness = mainActivity.WEAKNESS;
+
+        startOverBtn = (Button)view.findViewById(R.id.startOverBtn);
+        startOverBtn.setOnClickListener(this);
 
 
         TextView hdr = (TextView) view.findViewById(R.id.backStoryHdr);
@@ -154,6 +160,17 @@ public class BackstoryFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+    private static final String TAG = "MyActivity";
+    @Override
+    public void onClick(View view) {
+        Button btn = (Button)view;  // cast the passed-in view into a button so methods can be performed on it
+
+        if (btn == startOverBtn) {
+            android.util.Log.i(TAG, "Click!");
+            MainActivity mainActivity = (MainActivity)getActivity();
+            mainActivity.loadMainScreen();
+        }
     }
 
 
