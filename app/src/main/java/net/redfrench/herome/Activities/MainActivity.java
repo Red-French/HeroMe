@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
     public String HOWOBTAINED;
     public String WEAKNESS;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, backstoryFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void loadMainScreen() {
+        MainFragment mainFragment = new MainFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, mainFragment)
                 .addToBackStack(null)
                 .commit();
     }
