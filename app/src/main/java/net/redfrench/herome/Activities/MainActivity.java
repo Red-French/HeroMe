@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         // get the FrameLayout where the fragment will go
         Fragment fragment = manager.findFragmentById(R.id.fragment_container);  // id of FrameLayout in the main activity
 
-        if (fragment == null) {  // if the fragment has previously loaded, it wilol be in memory. Otherwise, fragment will be null.
+        if (fragment == null) {  // if the fragment has previously loaded, it will be in memory. Otherwise, fragment will be null.
             fragment = new MainFragment();  // MainFragment inherits from Fragment (see MainFragment.java)
             manager.beginTransaction()  // anytime you work with the FragmentManager, you begin a transaction
                     .add(R.id.fragment_container, fragment)  // add puts the fragment on the screen
